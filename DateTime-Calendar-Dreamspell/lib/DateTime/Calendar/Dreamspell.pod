@@ -1,0 +1,91 @@
+=head1 NAME
+
+DateTime::Calendar::Dreamspell - The great new DateTime::Calendar::Dreamspell!
+
+=head1 VERSION
+
+Version 0.01
+
+=cut
+
+our $VERSION = '0.01';
+
+
+=head1 SYNOPSIS
+
+Quick summary of what the module does.
+
+Perhaps a little code snippet.
+
+    use DateTime::Calendar::Dreamspell;
+
+    my $foo = DateTime::Calendar::Dreamspell->new();
+    ...
+
+=head1 AUTHOR
+
+Terrence Brannon, C<< <metaperl at gmail.com> >>
+
+=head1 BUGS
+
+Please report any bugs or feature requests to C<bug-datetime-calendar-dreamspell at rt.cpan.org>, or through
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=DateTime-Calendar-Dreamspell>.  I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
+
+=head1 METHODS
+
+=head2 BUILD
+
+(called automatically upon object construction)
+
+This method binds the C<dt> slot of the object to a L<DateTime> object.
+
+=head2 determine_moon
+
+Returns an integer corresponding to the current moon.
+
+
+
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command.
+
+    perldoc DateTime::Calendar::Dreamspell
+
+
+You can also look for information at:
+
+=over 4
+
+=item * RT: CPAN's request tracker
+
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=DateTime-Calendar-Dreamspell>
+
+=item * AnnoCPAN: Annotated CPAN documentation
+
+L<http://annocpan.org/dist/DateTime-Calendar-Dreamspell>
+
+=item * CPAN Ratings
+
+L<http://cpanratings.perl.org/d/DateTime-Calendar-Dreamspell>
+
+=item * Search CPAN
+
+L<http://search.cpan.org/dist/DateTime-Calendar-Dreamspell/>
+
+=back
+
+
+=head1 ACKNOWLEDGEMENTS
+
+
+=head1 COPYRIGHT & LICENSE
+
+Copyright 2009 Terrence Brannon, all rights reserved.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
+
+=cut
