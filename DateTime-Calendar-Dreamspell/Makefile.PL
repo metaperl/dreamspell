@@ -15,6 +15,7 @@ WriteMakefile(
         'Test::More' => 0,
 		  'Moose' => 0,
 		  DateTime => 0,
+		  'DateTime::Span' => 0,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'DateTime-Calendar-Dreamspell-*' },

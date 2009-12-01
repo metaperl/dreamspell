@@ -5,13 +5,15 @@ use strict;
 
 our $VERSION = '0.01';
 
+use Data::Dumper;
 use DateTime;
+use DateTime::Span;
 use Moose;
 
 
-has 'year'  => ( is => 'rw', isa => 'Int', required => 1);
-has 'month' => ( is => 'rw', isa => 'Int', required => 1);
-has 'day'   => ( is => 'rw', isa => 'Int', required => 1);
+has 'greg_year'  => ( is => 'rw', isa => 'Int', required => 1);
+has 'greg_month' => ( is => 'rw', isa => 'Int', required => 1);
+has 'greg_day'   => ( is => 'rw', isa => 'Int', required => 1);
 has 'dt'    => ( is => 'rw', isa => 'DateTime');
 
 sub BUILD {
@@ -26,6 +28,9 @@ sub BUILD {
       day   => $self->day
      )
     );
+
+  die Dumper($self);
+
 }
 
 
@@ -45,8 +50,51 @@ sub from_object {
 		   day => $object->day);
 }
 
+=for understanding year determination
 
-sub determine_moon {
+Similar to how a school year spans calendar years, a Dreamspell year does the same thing.
+
+We will define each Dreamspell year by the calendar year it begins with. 
+
+Since "Yellow Self-Existing Seed Year" spans 2009-07-26 to 2010-07-25, a Gregorian date
+with year 2009 would belong to that Dreamspell year if its month/day is 7/26 to 12/31.
+Otherwise, it would belong to Dreamspell year 2008.
+
+=cut
+
+my %dreamspell_year =
+  (
+
+   2008 => 'blue electric storm',
+   2009 => 'yellow self-existing seed'
+
+  );
+
+
+sub year {
+  my($self)=@_;
+
+  my $potential_start_date = DateTime->new(year => $self->greg_year,
+					   month => 7,
+					   day => 26);
+
+  my $dreamspell_year_span = DateTime::Span->from_datetime_and_duration
+    (
+     after => $potential_start_date, days => 364
+    );
+
+  warn "End day  is " . $dreamspell_year_span->end->strftime('%F');
+  warn "self->dt is " . $self->dt;
+
+  if ($dreamspell_year_span->contains($self->dt)) {
+    $self->greg_year;
+  } else {
+    $self->greg_year - 1;
+  }
+
+}
+
+sub moon {
   my($self)=@_;
 
 

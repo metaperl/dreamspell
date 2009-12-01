@@ -22,17 +22,7 @@ Perhaps a little code snippet.
     my $foo = DateTime::Calendar::Dreamspell->new();
     ...
 
-=head1 AUTHOR
-
-Terrence Brannon, C<< <metaperl at gmail.com> >>
-
-=head1 BUGS
-
-Please report any bugs or feature requests to C<bug-datetime-calendar-dreamspell at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=DateTime-Calendar-Dreamspell>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
-
-=head1 METHODS
+=head1 METHODS / SLOTS / ACCESSORS
 
 =head2 CONSTRUCTORS
 
@@ -49,7 +39,11 @@ C<< month >>, C<< day >>.
 
 =head2 OTHERS
 
-=head3 determine_moon
+=head3 year
+
+Returns the B<Dreamspell> year from the C<< DateTime::Calendar::Dreamspell >> instance.
+
+=head3 moon
 
 Returns an integer corresponding to the current moon.
 
@@ -94,6 +88,18 @@ L<http://search.cpan.org/dist/DateTime-Calendar-Dreamspell/>
 
 
 =head1 ACKNOWLEDGEMENTS
+
+
+=head1 AUTHOR
+
+Terrence Brannon, C<< <metaperl at gmail.com> >>
+
+=head1 BUGS
+
+Please report any bugs or feature requests to C<bug-datetime-calendar-dreamspell at rt.cpan.org>, or through
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=DateTime-Calendar-Dreamspell>.  I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
+
 
 
 =head1 COPYRIGHT & LICENSE

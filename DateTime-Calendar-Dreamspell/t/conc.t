@@ -6,7 +6,7 @@ BEGIN {
 	use_ok( 'DateTime::Calendar::Dreamspell' );
 }
 
-my $dcd = DateTime::Calendar::Dreamspell->new(year => 2009, month => 12, day => 4);
+my $dcd = DateTime::Calendar::Dreamspell->new(greg_year => 2009, greg_month => 12, greg_day => 4);
 
 isa_ok($dcd, 'DateTime::Calendar::Dreamspell');
 
@@ -25,3 +25,18 @@ $dt = DateTime->new( year   => 1964,
 my $dcd_fo = DateTime::Calendar::Dreamspell->from_object($dt);
 
 is(  $dcd_fo->dt->strftime('%F'), '1964-10-16', 'internal datetime object');
+
+is(  $dcd->year, 2009, 'year test');
+
+$dcd = DateTime::Calendar::Dreamspell->new(greg_year => 2009, greg_month => 07, greg_day => 4);
+
+is(  $dcd->year, 2008, 'year test');
+
+$dcd = DateTime::Calendar::Dreamspell->new(greg_year => 2009, greg_month => 07, greg_day => 25);
+is(  $dcd->year, 2008, 'year test');
+
+$dcd = DateTime::Calendar::Dreamspell->new(greg_year => 2009, greg_month => 07, greg_day => 26);
+is(  $dcd->year, 2009, 'year test');
+
+$dcd = DateTime::Calendar::Dreamspell->new(greg_year => 2009, greg_month => 07, greg_day => 27);
+is(  $dcd->year, 2009, 'year test');
