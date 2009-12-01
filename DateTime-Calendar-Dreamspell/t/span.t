@@ -15,7 +15,7 @@ my $start_date = DateTime->new(%date_conc_arg);
 
 my $dreamspell_year_span = DateTime::Span->from_datetime_and_duration
   (
-   after => $start_date, days => 364
+   start => $start_date, days => 365
   );
 
 for my $boundary qw(start end) {
@@ -31,11 +31,11 @@ for my $delta qw(-1 0 1) {
   my $date = DateTime->new(%arg);
   diag "test day  is " . $date->strftime('%F');
 
-  if ($dreamspell_year_span->intersects($date)) {
+  if ($dreamspell_year_span->intersects($date,$date)) {
     warn 'intersects';
   }
 
-  if ($dreamspell_year_span->contains($date)) {
+  if ($dreamspell_year_span->contains($date,$date)) {
     warn 'contains';
   }
 

@@ -80,7 +80,7 @@ sub year {
 
   my $dreamspell_year_span = DateTime::Span->from_datetime_and_duration
     (
-     after => $potential_start_date, days => 364
+     start => $potential_start_date, days => 365
     );
 
   warn "End day  is " . $dreamspell_year_span->end->strftime('%F');
