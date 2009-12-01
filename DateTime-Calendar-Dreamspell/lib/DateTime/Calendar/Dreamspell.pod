@@ -34,8 +34,17 @@ automatically be notified of progress on your bug as I make changes.
 
 =head1 METHODS
 
+=head2 CONSTRUCTORS
 
-=head2 determine_moon
+=head3 new
+
+=head3 now
+
+Calls C<new> with the year, month, and day from C<< DateTime->now >>.
+
+=head2 OTHERS
+
+=head3 determine_moon
 
 Returns an integer corresponding to the current moon.
 

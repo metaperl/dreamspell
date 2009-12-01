@@ -29,6 +29,17 @@ sub BUILD {
 }
 
 
+sub now {
+
+  my $now = DateTime->now;
+  __PACKAGE__->new(
+		   year => $now->year,
+		   month => $now->month,
+		   day => $now->day
+		   );
+
+}
+
 sub determine_moon {
   my($self)=@_;
 

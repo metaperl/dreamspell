@@ -11,7 +11,11 @@ my $dcd = DateTime::Calendar::Dreamspell->new(year => 2009, month => 12, day => 
 isa_ok($dcd, 'DateTime::Calendar::Dreamspell');
 
 is(  $dcd->dt->strftime('%F'), '2009-12-04', 'internal datetime object');
- 
+
+my $dcd_now = DateTime::Calendar::Dreamspell->now;
+
+diag("Now is"  . $dcd_now->dt->strftime('%F') );
+
 
 
 
