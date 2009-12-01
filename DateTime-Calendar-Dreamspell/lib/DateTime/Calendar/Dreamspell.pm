@@ -32,13 +32,19 @@ sub BUILD {
 sub now {
 
   my $now = DateTime->now;
-  __PACKAGE__->new(
-		   year => $now->year,
-		   month => $now->month,
-		   day => $now->day
-		   );
+
+  __PACKAGE__->from_object($now);
 
 }
+
+sub from_object {
+  my($pkg,$object)=@_;
+
+  __PACKAGE__->new(year => $object->year,
+		   month => $object->month,
+		   day => $object->day);
+}
+
 
 sub determine_moon {
   my($self)=@_;

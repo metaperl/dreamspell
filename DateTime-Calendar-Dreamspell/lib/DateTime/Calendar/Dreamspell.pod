@@ -42,6 +42,11 @@ automatically be notified of progress on your bug as I make changes.
 
 Calls C<new> with the year, month, and day from C<< DateTime->now >>.
 
+=head3 from_object
+
+Creates a DateTime::Calendar::Dreamspell instance from any object that answers the method calls C<< year >>, 
+C<< month >>, C<< day >>.
+
 =head2 OTHERS
 
 =head3 determine_moon
