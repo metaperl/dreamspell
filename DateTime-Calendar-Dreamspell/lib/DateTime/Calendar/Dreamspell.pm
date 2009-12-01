@@ -23,13 +23,13 @@ sub BUILD {
     (
      DateTime->new
      (
-      year  => $self->year,
-      month => $self->month,
-      day   => $self->day
+      year  => $self->greg_year,
+      month => $self->greg_month,
+      day   => $self->greg_day
      )
     );
 
-  die Dumper($self);
+  #warn 'SELF' . Dumper($self);
 
 }
 
@@ -45,9 +45,9 @@ sub now {
 sub from_object {
   my($pkg,$object)=@_;
 
-  __PACKAGE__->new(year => $object->year,
-		   month => $object->month,
-		   day => $object->day);
+  __PACKAGE__->new(greg_year => $object->year,
+		   greg_month => $object->month,
+		   greg_day => $object->day);
 }
 
 =for understanding year determination
@@ -84,9 +84,11 @@ sub year {
     );
 
   warn "End day  is " . $dreamspell_year_span->end->strftime('%F');
+  #warn "self is " . $self;
+  #warn "self is " . Dumper($self);
   warn "self->dt is " . $self->dt;
 
-  if ($dreamspell_year_span->contains($self->dt)) {
+  if ($dreamspell_year_span->intersects($self->dt)) {
     $self->greg_year;
   } else {
     $self->greg_year - 1;
