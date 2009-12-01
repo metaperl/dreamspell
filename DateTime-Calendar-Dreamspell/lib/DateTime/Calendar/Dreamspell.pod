@@ -34,16 +34,18 @@ automatically be notified of progress on your bug as I make changes.
 
 =head1 METHODS
 
-=head2 BUILD
-
-(called automatically upon object construction)
-
-This method binds the C<dt> slot of the object to a L<DateTime> object.
 
 =head2 determine_moon
 
 Returns an integer corresponding to the current moon.
 
+=head2 PRIVATE METHODS
+
+=head3 BUILD
+
+(called automatically upon object construction)
+
+This method binds the C<dt> slot of the object to a L<DateTime> object.
 
 
 
